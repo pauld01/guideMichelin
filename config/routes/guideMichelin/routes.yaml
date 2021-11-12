@@ -1,3 +1,7 @@
 guide_michelin_accueil:
-  path: /accueil
+  path: /accueil/{nom}
   controller: App\Controller\GuideController::accueil
+
+guide_michelin_menu:
+  path: /menu
+  controller: App\Controller\GuideController::menu
