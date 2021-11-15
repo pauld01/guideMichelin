@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <title>Guide Michelin</title>
     </head>
     <body>
-        <h1>Bienvenue sur le menu du Guide Michelin</h1>
-        <p>lien vers <a href="{{ path('guide_michelin_accueil') }}"> Revenir à l'accueil </a></p>
+        <h1>Bienvenue sur le menu du Guide Michelin {{ nom }}</h1>
+        <p>lien vers <a href="{{ path('guide_michelin_accueil',{'nom':nom}) }}"> Revenir à l'accueil </a></p>
     </body>
 </html>

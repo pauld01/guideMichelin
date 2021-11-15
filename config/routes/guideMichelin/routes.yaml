@@ -3,5 +3,15 @@ guide_michelin_accueil:
   controller: App\Controller\GuideController::accueil
 
 guide_michelin_menu:
-  path: /menu
+  path: /menu/{nom}
   controller: App\Controller\GuideController::menu
+
+guide_michelin_ajouter:
+  path: /ajouter/{nom}-{chef}-{etoiles}
+  controller: App\Controller\GuideController::ajouter
+
+guide_michelin_voir:
+  path: /voir/{id}
+  controller: App\Controller\GuideController::voir
+  requirements:
+    numero: \d+

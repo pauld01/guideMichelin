@@ -5,6 +5,6 @@
     </head>
     <body>
         <h1>Bonjour {{ nom }} : Guide Michelin ..trouvez un restaurant</h1>
-        <p>lien vers <a href="{{ path('guide_michelin_menu') }}"> Accéder au menu </a></p>
+        <p>lien vers <a href="{{ path('guide_michelin_menu', {'nom':nom}) }}"> Accéder au menu </a></p>
     </body>
 </html>
