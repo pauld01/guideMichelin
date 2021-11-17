@@ -1,3 +1,3 @@
 guide_michelin:
-    resource: routes/guideMichelin/routes.yaml
-    prefix: /guideMichelin
+  resource: routes/guideMichelin/routes.yaml
+  prefix: /guideMichelin

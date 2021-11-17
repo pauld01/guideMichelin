@@ -1,10 +1,14 @@
 guide_michelin_accueil:
   path: /accueil/{nom}
   controller: App\Controller\GuideController::accueil
+  defaults:
+    nom: "..."
 
 guide_michelin_menu:
   path: /menu/{nom}
   controller: App\Controller\GuideController::menu
+  defaults:
+    nom: "..."
 
 guide_michelin_ajouter:
   path: /ajouter/{nom}-{chef}-{etoiles}
@@ -15,3 +19,7 @@ guide_michelin_voir:
   controller: App\Controller\GuideController::voir
   requirements:
     numero: \d+
+
+guide_michelin_ajouter_request:
+  path: /resto/ajout
+  controller: App\Controller\GuideController::ajouterRequest
