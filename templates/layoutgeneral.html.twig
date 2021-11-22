@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guide Michelin</title>
+    </head>
+
+    <body>
+        <div id="navigation" >
+        </div>
+        <h1> {% block titre %} Guide Michelin {% endblock %} </h1>
+        <div id="contenu" >
+            {% block contenu %}
+            {% endblock %}
+        </div>
+        <hr />
+        <div id="pied_de_page" >
+            <p>&copy; DP.</p>
+        </div>
+    </body>
+</html>

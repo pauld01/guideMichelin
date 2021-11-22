@@ -1,0 +1,9 @@
+{% extends "layoutgeneral.html.twig" %}
+{% block titre %}
+    {{ parent() }} - Modifier un restaurant
+{% endblock %}
+{% block contenu %}
+    {% include "guideMichelin/formulaire.html.twig" %}
+    <p>/!\ Attention ! Vous modifier un restaurant qui existe déjà /!\ .</p>
+    <p><a href="{{ path('guide_michelin_accueil') }}">Abandonner</a></p>
+{% endblock %}

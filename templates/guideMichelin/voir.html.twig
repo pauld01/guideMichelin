@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <body>
-        <p> Voici des informations sur le restaurant suivant :</p>
-        <ul>
-            <li>Nom du restaurant : {{ resto.nom }}</li>
-            <li>Nom du chef : {{ resto.chef }}</li>
-            <li>Nombre d'étoiles {{ resto.etoiles }}</li>
-        </ul>
-    </body>
-</html>
+{% extends "layoutgeneral.html.twig" %}
+
+{% block titre %}
+    {{ parent() }}
+{% endblock %}
+{% block contenu %}
+    <h4>Bienvenue sur la page du restaurant n°{{ resto.id }}</h4>
+    <p>lien vers <a href="{{ path('guide_michelin_accueil',{'nom':resto.nom}) }}"> Revenir à l'accueil </a></p>
+    <p>lien vers <a href="{{ path('guide_michelin_list',{'nom':resto.nom}) }}"> Revenir au menu </a></p>
+    <p>lien vers <a href="{{ path('guide_michelin_modifier', {'id':resto.id}) }}"> Modifier le restaurant </a></p>
+
+    <ul>
+        <li> Restaurant n°{{ resto.id }}
+            <ul>
+                <li> Nom : {{ resto.nom }} </li>
+                <li> Chef : {{ resto.chef }}</li>
+                <li> Etoiles : {{ resto.etoiles }}</li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}

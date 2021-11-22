@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <h2>Ajouter un restaurant</h2>
-        {{ form(formAjoutResto) }}
-    </body>
-</html>
+{% extends "layoutgeneral.html.twig" %}
+
+{% block titre %}
+    {{ parent() }} : Ajouter un restaurant
+{% endblock %}
+{% block contenu %}
+    <h3>renseigner les champs ci-dessous</h3>
+    {% include "guideMichelin/formulaire.html.twig" %}
+{% endblock %}

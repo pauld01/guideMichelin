@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Guide Michelin</title>
-    </head>
-    <body>
-        <h1>Bonjour {{ nom }} : Guide Michelin ..trouvez un restaurant</h1>
-        <p>lien vers <a href="{{ path('guide_michelin_menu', {'nom':nom}) }}"> Accéder au menu </a></p>
-    </body>
-</html>
+{% extends "layoutgeneral.html.twig" %}
+
+{% block titre %}
+    {{ parent() }} : Accueil
+{% endblock %}
+{% block contenu %}
+    <h4>Bonjour {{ nom }} : Guide Michelin ..trouvez un restaurant</h4>
+    <p>lien vers <a href="{{ path('guide_michelin_list', {'nom':nom}) }}"> Accéder au menu </a></p>
+{% endblock %}

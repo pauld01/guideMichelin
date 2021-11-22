@@ -23,3 +23,20 @@ guide_michelin_voir:
 guide_michelin_ajouter_request:
   path: /resto/ajout
   controller: App\Controller\GuideController::ajouterRequest
+
+guide_michelin_list:
+  path: /resto/list/{nom}
+  controller: App\Controller\GuideController::list
+  defaults:
+    nom: "..."
+
+guide_michelin_modifier:
+  path: /modifier/{id}
+  controller: App\Controller\GuideController::modifier
+  requirements:
+    id: \d+
+
+guide_michelin_modifier_soumission:
+  path: /modifierSoumission/{id}
+  controller: App\Controller\SalleController::modifierSoumission
+  methods: POST
