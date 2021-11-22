@@ -6,6 +6,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 use App\Entity\Resto;
 use App\Form\Type\RestoType;
@@ -33,7 +34,7 @@ class GuideController extends AbstractController{
     public function voir($id) {
         $resto = $this->getDoctrine()->getRepository(Resto::class)->find($id);
         if(!$resto)
-            throw $this->createNotFoundException('Resto[id='.$id.'] inexistante');
+            throw $this->createNotFoundException('Resto[id='.$id.'] inexistant');
         return $this->render('guideMichelin/voir.html.twig', array('resto' => $resto));
     }
 
@@ -80,5 +81,18 @@ class GuideController extends AbstractController{
             return $this->redirect($url);
         }
         return $this->render('guideMichelin/modifier.html.twig', array('formAjouterResto' => $form->createView()));
+    }
+
+    public function supprimer($id) {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $this->getDoctrine()->getRepository(Resto::class);
+        $resto = $repo->find($id);
+        if($resto) {
+            $em->remove($resto);
+            $em->flush();
+            return $this->render('guideMichelin/supprimer.html.twig', array('resto' => $resto));
+        }
+        else
+            throw $this->createNotFoundException('Resto[id='.$id.'] inexistant');
     }
 }

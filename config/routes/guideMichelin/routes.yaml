@@ -38,5 +38,9 @@ guide_michelin_modifier:
 
 guide_michelin_modifier_soumission:
   path: /modifierSoumission/{id}
-  controller: App\Controller\SalleController::modifierSoumission
+  controller: App\Controller\GuideController::modifierSoumission
   methods: POST
+
+guide_michelin_suppression:
+  path: /supprimer/{id}
+  controller: App\Controller\GuideController::supprimer

@@ -1,0 +1,9 @@
+{% extends "layoutgeneral.html.twig" %}
+
+{% block titre %}
+    {{ parent() }} : suppression d'un restaurant
+{% endblock %}
+{% block contenu %}
+    <h4>Le restaurant n° {{ resto.id }} a bien été supprimé </h4>
+    <p>lien vers <a href="{{ path('guide_michelin_list', {'nom':resto.nom}) }}"> Revenir au menu </a></p>
+{% endblock %}
