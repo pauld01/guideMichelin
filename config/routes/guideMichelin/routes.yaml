@@ -44,3 +44,32 @@ guide_michelin_modifier_soumission:
 guide_michelin_suppression:
   path: /supprimer/{id}
   controller: App\Controller\GuideController::supprimer
+
+guide_michelin_list_etoiles:
+  path: /resto/voir/{nb}
+  controller: App\Controller\GuideController::findEtoiles
+  defaults:
+    nb: 1
+
+guide_michelin_list_etoiles_inf:
+  path: /resto/voir/inf/{nb}
+  controller: App\Controller\GuideController::findEtoilesInf
+  defaults:
+    nb: 1
+
+guide_michelin_list_etoiles_sup:
+  path: /resto/voir/sup/{nb}
+  controller: App\Controller\GuideController::findEtoilesSup
+  defaults:
+    nb: 1
+
+guide_michelin_add_etoiles:
+  path: /resto/ajout/etoiles
+  controller: App\Controller\GuideController::addEtoiles
+
+guide_michelin_list_chef:
+  path: /resto/voir/chef/{chef}
+  controller: App\Controller\GuideController::findRestoChef
+  defaults:
+    chef: ""
+

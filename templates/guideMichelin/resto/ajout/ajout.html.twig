@@ -1,0 +1,10 @@
+{% extends "layoutgeneral.html.twig" %}
+
+{% block titre %}
+    {{ parent() }}
+{% endblock %}
+{% block contenu %}
+    <h6>Les restaurants avec un nombre d'étoiles inférieur à 3 on reçu une étoile supplémentaire</h6>
+    <p>lien vers <a href="{{ path('guide_michelin_accueil') }}"> Revenir à l'accueil </a></p>
+    <p>lien vers <a href="{{ path('guide_michelin_list') }}"> Revenir au menu </a></p>
+{% endblock %}

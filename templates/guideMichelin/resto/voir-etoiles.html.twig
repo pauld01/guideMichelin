@@ -1,0 +1,23 @@
+{% extends "layoutgeneral.html.twig" %}
+
+{% block titre %}
+    {{ parent() }}
+{% endblock %}
+{% block contenu %}
+    <h4>Voici les restaurant avec un nombre d'étoiles de {{ nb }}</h4>
+    <p>lien vers <a href="{{ path('guide_michelin_accueil') }}"> Revenir à l'accueil </a></p>
+    <p>lien vers <a href="{{ path('guide_michelin_list') }}"> Revenir au menu </a></p>
+
+    {% for resto in restos %}
+        <ul>
+            <li> Restaurant n°{{ resto.id }}
+                <ul>
+                    <li> Nom : {{ resto.nom }} </li>
+                    <li> Chef : {{ resto.chef }}</li>
+                    <li> Etoiles : {{ resto.etoiles }}</li>
+                </ul>
+            </li>
+        </ul>
+        <p><a href="{{ path('guide_michelin_voir', {'id':resto.id}) }}"> voir le restaurant </a></p>
+    {% endfor %}
+{% endblock %}

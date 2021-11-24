@@ -95,4 +95,40 @@ class GuideController extends AbstractController{
         else
             throw $this->createNotFoundException('Resto[id='.$id.'] inexistant');
     }
+
+    public function findEtoiles($nb) {
+        $repo = $this->getDoctrine()->getManager()->getRepository(Resto::class);
+        $restos = $repo->findBy(array('etoiles'=>$nb));
+        dump($restos);
+        return $this->render('guideMichelin/resto/voir-etoiles.html.twig', array('restos' => $restos, 'nb' => $nb));
+    }
+
+    public function findEtoilesInf($nb) {
+        $repo = $this->getDoctrine()->getManager()->getRepository(Resto::class);
+        $restos = $repo->findRestoEtoilesInf($nb);
+        dump($restos);
+        return $this->render('guideMichelin/resto/voir-etoiles-inf.html.twig', array('restos' => $restos, 'nb' => $nb));
+    }
+
+    public function findEtoilesSup($nb) {
+        $repo = $this->getDoctrine()->getManager()->getRepository(Resto::class);
+        $restos = $repo->findRestoEtoilesSup($nb);
+        dump($restos);
+        return $this->render('guideMichelin/resto/voir-etoiles-sup.html.twig', array('restos' => $restos, 'nb' => $nb));
+    }
+
+    public function addEtoiles() {
+        $repo = $this->getDoctrine()->getManager()->getRepository(Resto::class);
+        $result = $repo->plusUneEtoile();
+
+        return $this->render('guideMichelin/resto/ajout/ajout.html.twig');
+    }
+
+    public function findRestoChef($chef) {
+        $repo = $this->getDoctrine()->getManager()->getRepository(Resto::class);
+        $restos = $repo->findBy(array('chef'=>$chef));
+        dump($restos);
+        return $this->render('guideMichelin/resto/voir-chef.html.twig', array('restos' => $restos, 'chef' => $chef));
+    }
+
 }

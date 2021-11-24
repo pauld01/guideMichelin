@@ -19,6 +19,26 @@ class RestoRepository extends ServiceEntityRepository
         parent::__construct($registry, Resto::class);
     }
 
+    public function findRestoEtoilesInf($etoile) {
+        $queryBuilder = $this->createQueryBuilder('s');
+        $queryBuilder->where('s.etoiles <= :etoile')
+            ->setParameter('etoile', $etoile);
+        return $queryBuilder->getQuery()->getResult();
+    }
+
+    public function findRestoEtoilesSup($etoile) {
+        $queryBuilder = $this->createQueryBuilder('s');
+        $queryBuilder->where('s.etoiles > :etoile')
+            ->setParameter('etoile', $etoile);
+        return $queryBuilder->getQuery()->getResult();
+    }
+
+    public function plusUneEtoile() {
+        $query = $this->getEntityManager()
+            ->createQuery("UPDATE App\Entity\Resto s SET s.etoiles = s.etoiles + '1' WHERE s.etoiles <= 3");
+        return $query->execute();
+    }
+
     // /**
     //  * @return Resto[] Returns an array of Resto objects
     //  */
