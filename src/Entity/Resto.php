@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RestoRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Resto
 {
@@ -78,5 +79,13 @@ class Resto
 
     public function __toString() {
         return $this->getNom().'.-.'.$this->getChef().'.-.'.$this->getEtoiles();
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function corrigerResto() {
+        $this->nom = strtoupper($this->nom);
     }
 }
