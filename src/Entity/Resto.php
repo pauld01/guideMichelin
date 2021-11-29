@@ -25,16 +25,16 @@ class Resto
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $chef;
-
-    /**
      * @ORM\Column(type="smallint")
      * @Assert\Regex(pattern="/^[0-3]$/",
      * message="le nombre d'étoile doit être comprit entre 0 et 3.")
      */
     private $etoiles;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Chef", cascade={"persist"})
+     */
+    private $idChef;
 
     public function getId(): ?int
     {
@@ -53,18 +53,6 @@ class Resto
         return $this;
     }
 
-    public function getChef(): ?string
-    {
-        return $this->chef;
-    }
-
-    public function setChef(string $chef): self
-    {
-        $this->chef = $chef;
-
-        return $this;
-    }
-
     public function getEtoiles(): ?int
     {
         return $this->etoiles;
@@ -78,7 +66,7 @@ class Resto
     }
 
     public function __toString() {
-        return $this->getNom().'.-.'.$this->getChef().'.-.'.$this->getEtoiles();
+        return $this->getNom().'.-.'.$this->getEtoiles().'-'.$this->getIdChef();
     }
 
     /**
@@ -87,5 +75,17 @@ class Resto
      */
     public function corrigerResto() {
         $this->nom = strtoupper($this->nom);
+    }
+
+    public function getIdChef(): ?Chef
+    {
+        return $this->idChef;
+    }
+
+    public function setIdChef(?Chef $idChef): self
+    {
+        $this->idChef = $idChef;
+
+        return $this;
     }
 }

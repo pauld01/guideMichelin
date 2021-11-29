@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use App\Entity\Resto;
+use App\Entity\Chef;
 use App\Form\Type\RestoType;
 
 class GuideController extends AbstractController{
@@ -131,4 +132,12 @@ class GuideController extends AbstractController{
         return $this->render('guideMichelin/resto/voir-chef.html.twig', array('restos' => $restos, 'chef' => $chef));
     }
 
+    public function modifierResto($id) {
+        $resto = $this->getDoctrine()->getRepository(Resto::class)->find($id);
+        if(!$resto)
+            throw $this->createNotFoundException('Resto[id='.$id.'] inexistant');
+        $form = $this->createForm(RestoType::class, $resto, ['action' => $this->generateUrl('guide_michelin_modifier_soumission', array('id' => $resto->getId()))]);
+        $form->add('submit', SubmitType::class, array('label' => 'Modifier'));
+        return $this->render('guideMichelin/modifier.html.twig',array('formAjouterResto' => $form->createView()));
+    }
 }

@@ -11,7 +11,7 @@ use App\Entity\Resto;
 class RestoType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add('nom', TextType::class)
-            ->add('chef', TextType::class)
+            ->add('idChef', TextType::class)
             ->add('etoiles', TextType::class);
     }
     public function configureOptions(OptionsResolver $resolver) {

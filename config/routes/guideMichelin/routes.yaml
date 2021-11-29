@@ -32,7 +32,7 @@ guide_michelin_list:
 
 guide_michelin_modifier:
   path: /modifier/{id}
-  controller: App\Controller\GuideController::modifier
+  controller: App\Controller\GuideController::modifierResto
   requirements:
     id: \d+
 
