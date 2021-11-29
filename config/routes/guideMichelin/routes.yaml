@@ -73,3 +73,7 @@ guide_michelin_list_chef:
   defaults:
     chef: ""
 
+guide_michelin_suppression_chef:
+  path: /supprimer/chef/{id}
+  controller: App\Controller\GuideController::removeChef
+

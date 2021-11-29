@@ -33,6 +33,7 @@ class Resto
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Chef", cascade={"persist"})
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $idChef;
 

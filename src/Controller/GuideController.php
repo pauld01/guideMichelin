@@ -140,4 +140,19 @@ class GuideController extends AbstractController{
         $form->add('submit', SubmitType::class, array('label' => 'Modifier'));
         return $this->render('guideMichelin/modifier.html.twig',array('formAjouterResto' => $form->createView()));
     }
+
+    public function removeChef($id){
+        $em = $this->getDoctrine()->getManager();
+        $repo = $this->getDoctrine()->getRepository(Chef::class);
+        $chef = $repo->find($id);
+        if($chef) {
+            $em->remove($chef);
+            $em->flush();
+            return $this->render('guideMichelin/supprimer-chef.html.twig', array('chef' => $chef));
+        }
+        else
+            throw $this->createNotFoundException('Chef[id='.$id.'] inexistant');
+
+
+    }
 }
