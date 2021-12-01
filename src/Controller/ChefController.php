@@ -35,7 +35,7 @@ class ChefController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($chef);
             $entityManager->flush();
-            return $this->redirectToRoute('chef');
+            return $this->redirectToRoute('guide_michelin_accueil');
         }
         return $this->render('chef/ajouter.html.twig',
             array('formAjouterChef' => $form->createView()));}

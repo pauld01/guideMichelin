@@ -15,7 +15,13 @@
                 <li> Nom : {{ resto.nom }} </li>
                 <li> Chef : {{ resto.idChef }} </li>
                 <li> Etoiles : {{ resto.etoiles }} </li>
+                <li> Plats proposés : </li>
+                <ul>
+
+                </ul>
             </ul>
+
+
         </li>
     </ul>
     <p> <a href="{{ path('guide_michelin_suppression', {'id':resto.id}) }}"> supprimer le restaurant </a></p>
