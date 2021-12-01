@@ -7,18 +7,16 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use App\Entity\Resto;
 use App\Entity\Chef;
 
-class RestoType extends AbstractType {
+class ChefType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('nom', TextType::class)
-            ->add('etoiles', TextType::class)
-            ->add('idChef', EntityType::class,
-                array('class'=>Chef::class));
+        $builder->add('nom', TextType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver) {
-        $resolver->setDefaults(array('data_class' => Resto::class,));
+        $resolver->setDefaults(array(
+            'data_class' => Chef::class,
+        ));
     }
 }

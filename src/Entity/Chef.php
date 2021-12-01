@@ -40,6 +40,6 @@ class Chef
     }
 
     public function __toString() {
-        return $this->getId().'';
+        return $this->getNom();
     }
 }

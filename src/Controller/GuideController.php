@@ -9,8 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use App\Entity\Resto;
-use App\Entity\Chef;
 use App\Form\Type\RestoType;
+use App\Entity\Chef;
+
 
 class GuideController extends AbstractController{
     public function accueil($nom) {
@@ -152,7 +153,5 @@ class GuideController extends AbstractController{
         }
         else
             throw $this->createNotFoundException('Chef[id='.$id.'] inexistant');
-
-
     }
 }

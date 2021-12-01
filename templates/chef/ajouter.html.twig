@@ -1,0 +1,9 @@
+{% extends "layoutgeneral.html.twig" %}
+
+{% block titre %}
+    {{ parent() }} : Ajouter un chef
+{% endblock %}
+{% block contenu %}
+    <h3>renseigner les champs ci-dessous</h3>
+    {% include "chef/formulaire.html.twig" %}
+{% endblock %}
